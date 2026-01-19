@@ -1,0 +1,51 @@
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.madhub.socialmediamanagemen">
+
+    <!-- Application metadata -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        
+        <!-- MainActivity serves as the entry point of the app -->
+        <!-- In this scenario, when the user launches the app, MainActivity is displayed, allowing users to configure and manage their social media accounts -->
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- AutomationService handles background operations for social media management -->
+        <!-- Workflow step: This service runs in the background 24/7, enabling automated posting and scheduling of content across platforms like Facebook, Instagram, and TikTok -->
+        <service android:name=".AutomationService"
+                 android:exported="false"/>
+                 
+    </application>
+
+    <!-- Permission declarations -->
+    <!-- Practical use case: Internet access is required for social media management tasks such as fetching data and posting content -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- In this scenario, storage permissions may be needed to save and access media files before posting -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+</manifest>
+```
+
+### Explanation of Scenario-Based Components and Permissions:
+
+- **MainActivity**: This component serves as the main user interface of the application. When the user launches the app, they are presented with a dashboard where they can manage their social media accounts and automate posting. This is a key part of the user workflow for configuring their social media management strategies.
+
+- **AutomationService**: This service runs continuously in the background, ensuring that posts are scheduled and executed even when the app is not actively open. In practical applications, this allows users to maintain a regular posting schedule without manual intervention, thereby enhancing productivity.
+
+- **Permissions**:
+  - **INTERNET Permission**: Essential for connecting to social media platforms to fetch content and post updates.
+  - **WRITE_EXTERNAL_STORAGE and READ_EXTERNAL_STORAGE**: Necessary for managing media files that are either uploaded to social media platforms or downloaded from them, ensuring a seamless user experience for content sharing.
+
+This configuration is designed to support a full-fledged social media management tool that leverages MadHub's capabilities for automated operations, supporting 24/7 functionality, and creating a user-friendly interface for effective social media management.
